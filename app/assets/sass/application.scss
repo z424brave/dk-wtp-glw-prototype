@@ -1,0 +1,81 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import "lib/extensions/extensions";
+
+// Patterns that aren't in Frontend
+@import "patterns/step-by-step-header";
+@import "patterns/step-by-step-nav";
+@import "patterns/step-by-step-related";
+@import "patterns/task-list";
+@import "patterns/related-items";
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+@import "patterns/flexbox";
+@import "patterns/card";
+@import "components/autocomplete";
+@import "custom";
+
+// START: Session timeout modal
+
+.govuk-modal-overlay {
+  position: fixed;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.85);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 53;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.govuk-modal {
+  position: relative;
+  z-index: 54;
+  top: 30%;
+  background: govuk-colour("white");
+  margin: 2em auto 0 auto;
+  border: 4px solid govuk-colour("black");
+  padding: 1em;
+  max-width: 700px;
+  width: 100%;
+  max-height: 100vh;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+
+// END: Session timeout modal
+
+.spinner-text {
+    text-align: center;
+  }
+
+.spinner {
+    background-image: url("../images/spinner.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50px;
+    margin-bottom: 2rem;
+  }
+
+.autocomplete__wrapper * {
+  @include govuk-typography-common();
+}
